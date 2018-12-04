@@ -1,0 +1,145 @@
+//------------------------------Misc.-----------------------------------------------
+http://www.vogella.com/tutorials/JavaRegularExpressions/article.html //Good information of Regular Expressions
+http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#sum //best for regular expressions
+http://beginnersbook.com //Good for Java Examples
+http://examples.javacodegeeks.com/core-java/lang/string/java-string-intern-example/ //intern() method example
+http://docs.oracle.com/javase/6/docs/platform/serialization/spec/version.html //Best for Serialization
+http://www.mkyong.com/java-best-practices/understand-the-serialversionuid/ //Good theory abt serialization
+www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html //Best Thread explaination
+http://beginnersbook.com/2013/03/thread-life-cycle-in-java/ //Threads life cycle
+http://www.motive.co.nz/glossary/client-server.php //One line Concept
+http://math.hws.edu/eck/cs271/lab5.html /Check this
+https://www.ego4u.com/en/cram-up/grammar/exercises //english practise
+
+//-----------------------THREADING WEBSITES-----------------------------
+http://www.allprogrammingtutorials.com/tutorials/threads-synchronization-in-java.php
+http://www.javaworld.com/article/2074318/java-concurrency/java-101--understanding-java-threads--part-2--thread-synchronization.html 
+http://www.javaworld.com/article/2074318/java-concurrency/java-101--understanding-java-threads--part-2--thread-synchronization.html
+http://www.tutorialspoint.com/java/lang/java_lang_thread.htm
+http://ecomputernotes.com/java/multithreading/thread-synchronization
+http://beginnersbook.com/2013/03/multithreading-in-java/
+http://beginnersbook.com/2013/03/java-threads/
+http://www.mkyong.com/java-best-practices/understand-the-serialversionuid/
+http://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html
+
+//--------------------------------Java Collections------------------------
+http://ulibgcj.sourceforge.net/javadoc/java/util/HashMap.html //method explaination is good regarding Collection
+
+//-----------------------------------Annotation------------------------------
+http://howtodoinjava.com/2014/06/09/complete-java-annotations-tutorial/ ..Good!!
+http://download.oracle.com/javase/tutorial/java/javaOO/annotations.html ..Not visited yet
+http://www.journaldev.com/721/java-annotations-tutorial-with-custom-annotation-example-and-parsing-using-reflection ..Really good
+https://docs.oracle.com/javase/tutorial/java/annotations/declaring.html ..Useful`
+http://crunchify.com/understanding-java-annotation-annotation-examples/ ..Has more detailed description
+
+//---------------------------------Finance------------------------------
+http://economictimes.indiatimes.com/definition/liquidity //excellent
+
+//--------------------------------Hibernate--------------------------
+http://www.java2blog.com/2013/01/hibernate-hello-world-example-in-eclipse.html
+
+//--------------------------------------Servlets--------------------------------
+http://docs.oracle.com/javaee/6/tutorial/doc/bnacj.html //Java EE tutorial
+http://tutorials.jenkov.com/java-servlets/httpsession.html //Go for it first verry useful
+http://beginnersbook.com/2013/05/servlet-architecture/ //Fentastic!!!
+http://beginnersbook.com/java-collections-tutorials/ //Fentastic Collection
+http://tutorials.jenkov.com/java-servlets/servlet-filters.html
+
+//-----------------------CSS Links-----------------------------------------------
+https://www.script-tutorials.com/how-to-do-pure-css3-photo-gallery/ //Good! :)
+http://www.hongkiat.com/blog/css-text-effects/ //nice effects
+
+//------------------------------JavaScript---------------------------------------------
+http://learnjavascript.co.uk/ //Interesting and in depth explaination
+http://www.simplehtmlguide.com/javascript.php //Thorogh\
+http://www.javascript-coder.com/window-popup/javascript-window-open.phtml //good
+http://www.corelangs.com/js/basics/redirect.html //redirection methods
+Tip 1: problem is the button type was submit, and it was trying to submit to nowhere(because there is no action and it executes after check/validate.. )
+After changing the button type from submit to "Button" it works. also .heref is optional....
+Tip 2: here email is already a var with email text field, so should not be used as email.value
+Tip 3: //email.value=""; here email is var so will not change the value of email element, because javascript doesnt work as pass by reference(java works)
+
+http://www.w3resource.com/javascript/form/email-validation.php //Email Validation
+http://www.codeproject.com/Articles/18869/File-Handling-at-Client-Side-Using-Javascript //File IO in javascript good explaination.
+http://www.w3.org/TR/file-upload/ //File reading Notes
+http://www.aspsnippets.com/Articles/Read-Parse-and-display-CSV-Text-file-using-JavaScript-jQuery-and-HTML5.aspx //Reading and display in table format
+http://mounirmesselmeni.github.io/2012/11/20/reading-csv-file-with-javascript-and-html5-file-api/ //code of reading file from csv
+https://www.youtube.com/watch?v=0tEW8rB1bbU&list=PLoYCgNOIyGACTDHuZtn0qoBdpzV9c327V&index=5&spfreload=1 //best videos
+http://htmldog.com/guides/javascript/beginner/variables/ //Excellent!!!!
+
+//--------------------------------Jquery------------------------------------------------------
+https://www.youtube.com/watch?v=hMxGhHNOkCU&list=PLoYCgNOIyGABdI2V8I_SWo22tFpgh2s6_ //Best Videos
+//--------------------Spring----------------------------------------------------------
+http://docs.spring.io/spring-framework/docs/1.2.9/reference/beans.html#context-create
+http://www.codejava.net/frameworks/spring/understanding-spring-mvc //Spring MVC
+https://www.genuitec.com/spring-frameworkrestcontroller-vs-controller/ 
+
+//------------------------------Angular JS----------------------------------------
+http://www.angulartutorial.net/2014/04/date-filtering-and-formatting-in.html //good filter example
+http://www.webweaver.nu/html-tips/link-within-a-page.shtml //good page for linking div tag
+
+//----------------------------------Python Video Tutorials---------------------------
+https://www.youtube.com/watch?v=D48iCw3WWpI //Let's Learn Tutorials-Excellent!!
+
+//----------------------------------Saba Courses----------------------------------------
+https://mysourcesocial.bnymellon.net/docs/DOC-28265 //Good for GIT
+https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control //best for GIT version control
+https://www.youtube.com/watch?v=al7bRZzz4oU&list=PL92E89440B7BFD0F6 //Maven
+https://www.udacity.com/course/responsive-web-design-fundamentals--ud893 //Responsive Web Design
+
+//-----------------------------JUNIT-------------------------------------------
+https://www.youtube.com/watch?v=8WRRenlqsEI&list=PL66F86152D9BE545D&index=2 //beautifully explained
+//-----------------------------------Design patterns------------------------------
+http://www.avajava.com/tutorials/lessons/prototype-pattern.html
+http://www.oodesign.com/prototype-pattern.html
+https://dzone.com/refcardz/design-patterns
+
+//=================================NEXUS SONATYPE REPOSITORY===================
+https://repository.sonatype.org/#welcome
+
+//----------------------------------Spring---------------------------------
+https://spring.io/guides //entire guide
+
+//-----------------------------------Drool------------------------------------------------
+http://www.plugtree.com/drools-basic-rules-example/
+http://www.plugtree.com/drools-rules-attributes/
+http://docs.jboss.org/drools/release/6.1.0.Final/drools-docs/html_single/#d0e6859
+https://access.redhat.com/documentation/en-US/JBoss_Enterprise_SOA_Platform/4.3/html/JBoss_Rules_Reference_Guide/ch05s05.html
+https://docs.jboss.org/drools/release/5.2.0.Final/drools-expert-docs/html/ch05.html
+
+//-------------------------Servlets-------------------------------
+http://docs.oracle.com/javaee/6/tutorial/doc/bnacj.html //Java EE tutorial
+http://tutorials.jenkov.com/java-servlets/httpsession.html //Go for it first verry useful
+http://beginnersbook.com/2013/05/servlet-architecture/ //Fentastic!!!
+http://beginnersbook.com/java-collections-tutorials/ //Fentastic Collection
+http://tutorials.jenkov.com/java-servlets/servlet-filters.html
+
+//-----------------------------SHELL SCRIPT-----------------------------
+http://cli.learncodethehardway.org/book/introduction.html
+http://www.arc.vt.edu/resources/software/unix/shells.php
+http://unixhelp.ed.ac.uk/environment/env3c.html
+http://www.tech-recipes.com/rx/181/set-an-environment-variable-in-korn-shell-ksh/
+http://b62.tripod.com/doc/docksh.htm	//refer this for array
+https://books.google.co.uk/books?id=5nMCY272chUC&pg=PA135&lpg=PA135&dq=flow+controls+in+ksh&source=bl&ots=VqBP9Gc-ki&sig=bF4L4xDLEI5G9NJanhYNPd050CQ&hl=en&sa=X&ei=N3yHVbD_JJKU7QaigLD4BQ&ved=0CEAQ6AEwBQ#v=onepage&q=flow%20controls%20in%20ksh&f=false //refer this for explaination.
+http://www.freeos.com/guides/lsst/
+http://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/ //not reviewed yet.
+http://www.freeos.com/guides/lsst/ch03sec01.html //Excellent!!(reached upto chapter 3)
+http://www.grymoire.com/Unix/Quote.html //another excellent site i' ve ever visit.. :D :)
+http://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/  //Good one too
+http://ryanstutorials.net/linuxtutorial/piping.php //better
+http://www.robelle.com/smugbook/regexpr.html //atleast WORKING!! :| 
+http://www.tutorialspoint.com/unix/unix-regular-expressions.htm //Go first for it tom.
+http://www.dreamsyssoft.com/sp_ifelse.jsp //yup!! Best too.. :D
+http://www.livefirelabs.com/unix_tip_trick_shell_script/unix_shell_scripting/sample-shell-scripts-for-and-while-loops.htm //Nyc examples of Arrays and While loop :)
+http://www.softpanorama.org/Scripting/Shellorama/Control_structures/if_statements.shtml //Having lots of examples :o [if else fi]
+
+//----------------------ORACLE---------------------------------------------------
+http://www.techonthenet.com/oracle/index.php
+https://en.wikipedia.org/wiki/JDBC_driver
+http://www.cbcb.umd.edu/confcour/Spring2011/CMSC424/Simple%20tutorial%20for%20using%20JDBC.pdf
+http://www.tutorialspoint.com/jdbc/jdbc-create-tables.htm
+http://www.javacodegeeks.com/2015/02/jdbc-tutorial.html
+https://en.wikibooks.org/wiki/Structured_Query_Language/Data_Query_Language //Sahiii
+
+//-----------------------------System Calls------------------------
+http://www.informit.com/articles/article.aspx?p=23618&seqNum=3 //Nice Explaination :)

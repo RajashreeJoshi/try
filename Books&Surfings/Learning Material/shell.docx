@@ -1,0 +1,400 @@
+
+
+
+
+ 
+
+ Advanced Research Computing
+
+
+Home
+About Mission
+Personnel
+Facilities
+
+ResourcesComputing >BlueRidge (Sandy Bridge)
+HokieSpeed (CPU/GPU)
+HokieOne (SGI UV)
+Ithaca (IBM iDataPlex)
+
+Visualization > Visionarium
+HPV
+
+Storage
+Software >Abaqus
+CUDA
+MATLAB
+MPI
+NAMD
+OpenMP
+R
+Unix
+
+FE&R Proposal Statement
+
+User Info New User Info
+FAQ
+Allocations
+Training
+Submit a Request >Account
+Help
+Consultation
+
+Log in
+
+Research Submit Research
+Citations
+
+
+
+
+Shell Features
+
+Which Shell to Use?
+
+Quoting Characters
+
+Shell Variables
+
+Environmental Variables
+
+Command Alias Applications
+
+Command History Syntax
+
+Unix Shell Scripts
+
+Working in the Shell Environment
+ 
+The command processor, the shell, provides the interface between you and the Unix operating system kernel. To determine the current active shell, enter the ps (process status) command and observe the shell having the highest process id number: 
+  ps To determine the default login shell, enter:   grep $USER /etc/passwd This command may not display the anticipated result on some Unix systems, such as NeXT workstations, as these systems do not store the userid information in /etc/passwd.
+ 
+Shell Features
+ 
+The shells (command processor) provides the following features:
+ •Command Line Processing
+•Redirection
+•Pipes and Filters
+•Variable Definition
+•Script Processing
+ 
+We have already discussed command line processing, redirection, pipes, and filters. It is important to note that these functions are performed by the shell and not the Unix operating system kernel. The remaining two topics, plus enhanced interactive features of the BASH, Korn, and C Shells are the subject of this chapter.
+ 
+First, however, we will present a brief overview of three of the most commonly used shells: 
+    shell name    prompt   command to initiate
+    ----------    ------   -------------------
+      Bourne        $          sh
+      Korn          $         ksh
+      BASH          $        bash
+      C             %         csh 
+
+You can initiate a new shell by invoking the command name of the shell you would like to use. Say for example, you are using the Korn Shell and would like to try some of the example exercises for the C shell, simply enter: 
+  csh 
+
+To return to the prior shell (or logoff if you are in the lowest level shell), press <Ctrl-D> or enter the command exit. The default shell is typically defined in the file /etc/password. The chsh (CHange SHell) command can be used to change the default logon shell in some Unix environments such as SGI Altix and IBM AIX; this command is not available on Sun implementations of Unix. If available, you can use this command by simply entering  chsh  Typically you will then be prompted to enter your logon password and then the full path and filename of the shell you widh to use. For example, to switch to the Korn shell, you would specify "/bin/ksh". See the "chsh" man page for full details.
+ 
+Which Shell to Use?
+ 
+The BASH Shell
+ 
+The BASH, Bourne-Again Shell, is a popular shell now found as the default on most Linux systems and Mac OS-X; unless you have requested another shell, it is the default used on the VT ARC Systems.  This shell is based on the Bourne shell and includes a variety of interactive features such as command alias and history.
+ 
+For a summary of BASH commands, see An A-Z Index of the Linux BASH command line.
+ 
+W hen you are using the BASH shell, you can use the  "help"  command to display a list of BASH shell commands; entering "help" followed by the name of any of these commands will display a command usage summary.
+ 
+The Bourne Shell
+ The Bourne Shell was developed in the late 1970's and is still available on almost all Unix systems. Since it is portable, compact in size, requires minimal resources, and executes rapidly, it is commonly used for shell scripts. Due to its lack of interactive features, it is not recommended for use as your logon shell.
+ 
+For a general reference on the Bourne Shell, see An Introduction to the Unix Shell
+ 
+The C Shell
+ 
+The C Shell was designed to use a C language script syntax and provide interactive features such as command alias and history to make it more suitable for interactive applications than the Bourne shell
+ 
+Unfortunately the script language of the C Shell is not compatible with Bourne, Korn, and BASH Shells.
+ 
+The Korn Shell
+ 
+The Korn Shell is compatible with and includes most of the features of the Bourne shell. It also includes a variety of interactive features such as command alias and history.
+ 
+Selection Summary
+ 
+Since the BASH Shell provides both compatibility with the Bourne shell and interactive capabilities analogous to those of the Korn and C shells, it is commonly the shell of choice on the systems where it is available. If you are already familiar with using either the Bourne, Korn, or C Shell, you can continue to use your preferred shell on the VT ARC Systems; however, you are encouraged to try the BASH Shell -- it is the shell provided by default if you do not specifically request another shell on your ARC application form. See Differing Features in "Bash Guide for Beginners" for a table comparing features of the Bourne, C, Korn, and BASH shells.
+ 
+No matter which shell you select for interactive applications, you may wish to use the Bourne shell for writing scripts to maximize their portability among systems.
+ 
+
+
+Quoting Characters
+ 
+A variety of keyboard symbols take on special meanings in the Unix shell environments; see Unix Special Characters for examples of some of the most commonly used symbols. The quoting functions are provided to enable inclusion of commands within text substitutions or to remove the significance of special characters. The "echo" and "date" commands will be used to illustrate how the quoting characters can be put to use.
+ 
+The "date" command displays the current date and time, e.g., enter: 
+  date 
+
+The command "echo" is used to display the contents of a string. 
+  echo 'Here is a text string.' 
+
+The primary quoting characters are: 
+•` (back quote or open single quote which is typically found as the unshifted equivalent of the ~ key on most keyboards): Executes the enclosed command and substitutes the result of the command. Enter the following command and observe the results displayed on your screen:   echo Today is `date`
+•\ (back slash): Removes the special significance of a single character.   echo Today is \`date\`
+•' (single quote): Remove the special significance of all enclosed characters.   echo 'Today is `date`' All text included within a pair of single quotes is considered as a single argument when it is passed to a command or shell script.
+•" (double quote): Remove the special significance of all enclosed characters except $ (allows variable substitution), ` backquote (allows command substitution), ! (allows history substitution in the C Shell), and \ (when it precedes a special character such as $, ", or \).   echo "Today is `date`"
+ 
+Now observe the result of issuing the following commands: 
+  echo    *
+  echo   \*  '*'
+  echo   "*" Use of the quoting functions will be further illustrated by additional examples in this chapter.
+ 
+Shell Variables
+ 
+Shell variables follow the following naming convention:
+ •1-20 characters (alphabetic, numeric, or an underscore).
+•First character must be alphabetic or an underscore.
+ 
+The command 'set' can be used to display shell variables; use the "unset" command to remove a variable definition. To display the value of a shell variable, use the echo command and a dollar sign ($) preceding the name of the variable. For example, to display the value of the variable TERM, enter: 
+  echo  $TERMNote: Uppercase letters are typically used for the system's environmental variables.
+ 
+BASH, Bourne, and Korn Shell
+ 
+To create a shell variable using one of these shells, simply enter the name of the variable you would like to create followed by an equal sign and the text you would like to assign to it. If you would like to include a blank in the text, enclose the text string in single or double quotes. Do not include a blank either prior to or following the equal sign. Here are some examples illustrating assignment of shell variables; observe the results displayed using the echo commands:
+ •t='Today is '
+•d=`date`
+•echo $t $d
+ 
+Use the export command save the variable definition as and environmental variable and to pass the value of the assigned variable to future processes created by this shell. For example, if invoke a second Korn Shell, but have not exported a variable, the value of the variable will not be avaiable to applications run within this invocation of the shell. For example, consider the result of executing the following commands: 
+  x='1+3'
+  echo  $x
+  ksh
+  echo  $x
+  exit
+  export x
+  ksh
+  echo  $x
+  ps
+  exitNote: Be careful how many times you use the exit command as it may in logging off from the system. It is recommended that you use the ps command prior to issuing an exit command or pressing <Ctrl-D> so that you do not logout inadvertently.
+ 
+Note: you can create an environmental variable as a single command: for example to create an environmental variable x having the value '1+3' as above, we could have entered: 
+  export x='1+3' 
+
+C Shell
+ 
+The "set" command is used to assign a text string to a C Shell variable.
+ •set t='today is '
+•set d=`date`
+•echo $t $d
+ 
+Environmental Variables
+ 
+Environmental (keyword) variables are used to define parameters used by the operating system and the system environmental variables are typically entered as all upper case names. Observe the results of entering each of the following commands: 
+  echo  $HOME
+  echo  $TERM
+  env The environmental variable HOME is defined by the system to be the home directory for each account;  the TERM variable defines the current terminal type. Recall that we had previously initialized $TERM as "vt100".
+ 
+The env ("printenv" command on some Unix systems) displays a list of the currently defined environmental variables.
+ 
+Note: if the "env" command fails to display a list of the environmental variables, try using the command "printenv" instead.
+ 
+Changing the System Prompt
+ 
+If you are using the BASH, Bourne, or Korn Shell, you can change the displayed prompt by assigning a value to the PS1 environmental variable. For example, in the Bourne Shell, to display your home directory followed by two greater than signs (>>) as the prompt, enter the following commands: 
+  PS1='>> '
+  export $PS1 
+Note: To make these commands effective for future sessions, include them in the file ".profile" which is executed when you log into the system.
+ 
+Note: The character used in the above example is an open single quote (', an apostrophe). If you do not pair quoting characters correctly, unexpected results may occur. If you observe only a single greater than sign when you attempt to assign '>> ' to the PS1 environmental variable, you have not paired your quote marks correctly. You can terminate entry of this command by pressing <Ctrl-C>.
+ 
+In the Korn Shell, you can include the current command number and current directory as part of the displayed prompt by either entering the following pair of commands or by including them in the file ".profile" for use by future login sessions: 
+  PS1='! $PWD>'
+  export $PS1 By default the C Shell generates the % prompt, but it can be tailored to your preference. For example, to include the current directory as part of the C shell prompt, enter:   set prompt="$cwd"%
+  alias cd 'cd \!* ;set prompt="$cwd"%' The alias command is required when using the C Shell to reset the prompt when you change into a new directory. Include this pair of commands in the file ".cshrc" if you would like to make these definitions available in future invocations of the C Shell command interpreter.
+ 
+Modifying the PATH Variable
+ 
+The PATH variable is used to store a list of directories which are searched when you issue a command. To display the current value of the PATH variable, simply enter: 
+  echo  $PATH To add an additional directory (e.g., my_new_directory) to the value of the PATH variable in the Bourne or Korn shells, use the following commands:   PATH=$PATH:my_new_directory
+  export PATH Do not include spaces prior to or after the equal (=) sign. 
+
+Note: By default, the VT ARC systems do not include "." (the current directory) in the search path as doing so is considered a potential security risk!
+ 
+Changing the PATH Variable When Using the C Shell
+ 
+If you are using the C shell, use the following command to add a directory to the PATH variable: 
+  set path=($path my_new_directory)Note: The C shell uses both the "path" and "PATH" variables; the the value of the "PATH" variable is updated whenever the value of the "path" variable is changed. To assign a list of items to a variable when using the C Shell, enclose it in parentheses. The command "set" is used to assign a value to a C Shell variable in the local environment; "setenv" is used to assign a value to a C Shell variable in the global environment, i.e., the current environment and all future processes generated from this shell.
+ 
+Evaluating Expressions and Assigning Numeric Values to Variables
+ 
+The expr command can be used to evaluate numeric expressions. For example, consider the results of entering the following commands:
+ •counter=5
+•expr $counter + 5
+•x=`expr 5  +  9 `
+•echo $x
+ 
+Note: You must include spaces between each of the terms and operators when you use the expr command.
+ 
+The "let" command can be used with the BASH or Korn Shell to evaluate expressions and assign the result to a variable. For example, using either of these shells, observe the results of entering the following commands:
+ •let counter=5
+•let counter=2*$counter+5
+•echo $counter
+ 
+Note: When using the "let" command, do not include spaces between the variable name and the equal sign nor following the equal sign.
+ 
+The "@" command can be used within the C shell to evaluate expressions and assign the result to a variable. If you are using the C Shell, observe the result of the following commands:
+ •@ counter = 5
+•@ counter = 2 * $counter + 5
+•echo $counter
+•@ counter += 1
+•echo $counter
+•@ counter ++
+•echo $counter
+•set d=`date`
+•echo $d
+•echo $d[3]
+•@ d[3] ++
+•echo $d[3]
+ 
+When "@" is used for expression evaluation with the C Shell, you must include a space before and after the equal sign as well as between each element which appears on the right side of the expression. In the last three examples, $d[3] corresponds to the 3rd element (day of the month) assigned to the variable "d" by the set command.
+ 
+Command Alias Applications
+ 
+The alias command is available in both the BASH, Korn, and C shells to provide substitution of a command or command string by an alternative name or abbreviation. The alias commands illustrated in this section assume use of the Korn Shell. If you are using the C Shell, substitute a blank space for the equal sign in the example definitions. The alias command is not available in the Bourne shell. The alias command is commonly used to:
+ •To minimize repetitive typing and thus reduce errors (i.e., create abbreviations):   alias  h=history
+•To create your own commands:   alias listdir='find . -type d -print'
+•To modify the action of an existing command:   alias  ls='ls  -F'
+• The -i option of the cp, mv, and rm command results in an interactive prompt being displayed prior to overwriting or removing each file which would be affected by the command. This option can be used to provide some protection from mistakes which would be caused by accidently overwriting or removing files. To obtain this protection, include the following alias definitions in .profile (Korn Shell) or .login (C Shell -- recall you should substitute a space for the equal sign in the alias examples).   alias cp='cp -i'
+  alias mv='mv -i'
+  alias rm='rm -i' You will now be asked for confirmation prior to overwriting or removing an existing file. If you are using the C Shell and would like to prevent overwriting files by redirection, set the "noclobber" variable:   set  noclobber
+ 
+To display a listing of the currently defined aliases, simply enter the command:
+   alias To remove an alias definition, use the unalias command. For example, to remove the alias of h for the history command, enter:  unalias  h The C shell contains one alias feature not found in the Korn Shell: command line substitution. When using the C Shell, it is possible to substitute the remainder of the command line at a specific point (variable \!*) within the alias definition. Say for example, you would like to turn off messages while in vi. In the C Shell you could define the following alias:  alias vi 'mesg n;/usr/ucb/vi \!*; mesg y' Then, if you were to enter the command "vi my_file", the alias would first turn off messages, execute the command "/usr/ucb/vi my_file", and then turn messages back on after you had exited from vi.
+ 
+Command History & Command Line Editing
+ 
+The history command enables recall of previous commands for re-execution; it is not available for use with the Bourne shell.
+ 
+BASH Shell History & Command Line Editing
+ 
+To recall a prior command, simply press the up arrow key;  the down arrow key can be used to scroll back through the list of previously displayed commands.  To edit the current command line, simply use the right or left arrow keys to move to the appropriate position in the line.  You can insert new characters after the current cursor position by simply typing the text you wish to enter;  use the "Backspace" key to delete the character in front of the current cursor position.
+ 
+The BASH Shell keeps a log of previously issued commands in the file ".bash_history". To review a list of previously entered comands, enter: history
+ 
+You can also use the C Shell History commands described below. 
+
+Korn Shell History
+ 
+The Korn Shell keeps a log of previously issued commands in the file ".sh_history". To recall a prior command, you must first specify which editor you would like to use with the command history. To use the vi editor, you must have first invoked the following command: 
+  set  -o  vi You can either enter this command at the system prompt or, for future logon sessions, include it in the file ".profile".
+ 
+Now you can use vi commands to edit previous commands. First press <Esc> to enter vi command mode; a few of the most commonly used command line editing keys include:
+ krecall the previous command. Pressing this key multiple times allows you to scroll back through previously issued commands. l(lower case L) allows you to move the cursor to the right one character at a time. Of course you can precede the "l" with a number to move the cursor the specified number of characters to the right. hallows you to move the cursor to the left one character at a time. Of course you can precede the "h" with a number to move the cursor the specified number of characters to the left. Aenter insert mode at the end of the command. aenter insert mode after the current cursor position. ienter insert mode in front of the current cursor position. I(uppercase i) enter insert mode at the beginning of the line. rreplace a single character 
+Even though the cursor arrow keys may function for you while using the vi editor, they may not function while editing the command line. Thus you need to be familiar with using the "l" key to move the cursor to the right and the "h" key to move the cursor to the left.
+ 
+When you are finished editing a command, you can execute it by pressing the <Return> key.
+ 
+C Shell history
+ 
+If you are using the Korn Shell and would like to try using the C Shell interactive history features, enter the following command prior to issuing any to the other commands in this section (recall that you can return from the C Shell back to the Korn Shell by pressing <Ctrl-D> or entering the command exit): 
+  csh 
+
+To use the C Shell history capabilities, you must first turn on the history command by assigning a number to the history variable. Include the following command in the file ".cshrc" to assign the value 23 to the history variable: 
+  set  history=23 You will now have access to the last 23 commands you had issued. Since Unix systems typically display 24 lines of output, this allows all of the stored commands to be displayed without scrolling off the top of the display screen. If you prefer, you can use a value which is larger or smaller than 23.
+ 
+The following table illustrates how the C Shell history command can be used: 
+!!re-execute the last command !vire-execute the last command beginning with "vi" !?fred?re-execute the last command containing "fred" !5re-execute command number 5 !5:s/old_text/new_text  re-execute command 5 and substitute "new_text" for "old_text" old_text<caret>new_text  re-execute the previous command and substitute "new_text" for "old_text". On most keyboards, the <caret>, also known as "hat" is obtained by pressing the shift key and then the number six key the "typewriter" section of the keyboard. !-5re-execute the fifth previous command 
+The old_text and new_text in the above examples cannot include blank spaces. "!" is pronounced "bang".
+ 
+Execute the following commands and observe how the history capabilities enables recall of past commands and minimization of typing: 
+  set  history=23
+  set  prompt='\!%'
+  mkdir xmp
+  
+  ls -la
+  !!
+  ls -F
+  history
+  !-2
+  !cat 
+
+Unix Shell Scripts
+ 
+Unix shell scripts provide a convenient mechanism for simplfing the execution of complex or repetitive command sequences.
+ 
+Typically a "#" used within a shell script is used to indicate a comment; however, if "#" appears as the first character of the first line, its interpretation is different. You can begin a script with "#!/bin/sh" to indicate that the commands contained in the file are to be interpreted as a Bourne Shell script, #!/bin/csh for a C Shell script, or #!/bin/ksh for a Korn Shell script. If "#" appears as the first character of the first line and is not followed by "!", the results are system dependent, but may result in the commands within the file being interpreted in the language of the login shell.
+ 
+Before a script can be executed, it must be given execute permission. Use the chmod command to make this file executable by user, group, and other: 
+  chmod   a+x   my_script 
+
+Applications
+ 
+Shell scripts can include the following capabilities:
+ 1.Evaluating Expressions
+2.Processing Input Arguments
+3.Conditional Processing
+4.Looping
+ 
+Shell scripts provide the following advantages over programming languages: 
+•Easy to write and maintain
+•Don't need to compile and link
+•Shells contain built in commands for fast execution
+ 
+Passing Arguments
+ 
+Numbers and text strings can be passed for use within a script on the command line following the name of the script when it is used. Each item passed to the script is known as an argument; blank space are used as the delimiter between arguements except any information which is enclosed within qoutes is considered as a single argument.
+ 
+As an example, suppose we would like to create a shell which would add the values of two numbers entered on the command line and return the result. We could do so by creating a file called "add2" containing the following line: 
+  echo "The sum of $1 and $2 is:   `expr $1 + $2` We could then obtain the sum of 5 and 4 either by entering the command "sh ./add2 5 4" or by using the chmod command to make file 'add2' executable and then entering "add2 5 4".
+ 
+A second example illustrating how arguments can be passed to a shell script is contained in the sample file "argtest". This shell first prints a list of all the arguments which were passed to it and then it prints a line for each argument it contains. This file also illustrates use of some of the flow control commands discussed in Flow Control. Observe the results of entering the following commands: 
+  ./argtest
+  ./argtest one two three
+  ./argtest a b c d e f g h i j k l m n o p q r s 
+
+The following arguments can be used within the Bourne, C, or Korn Shells: 
+•$* all arguments (alternatively you can also use $argv[*] or $argv in the C Shell).
+•$1...$9 arguments 1 to 9.
+ 
+The shift command can be used to access arguments 10 and higher which are passed to a shell script. When the shift command is executed, the values associated with the variables $1 through $9 are shifted to the next lower numbered variable. Thus $1 then has the former value of $2 and $9 has the value associated with the 10th argument. If the shift command is issued again, $1 will then have the value associated with the 3rd argument and $9 will have the value associated with the 11th argument. The shift command can be repeated until all arguments are read. Use of the shift command to read all command line arguments is illustrated in sample file "argtest". Also note that the shift command reduces the value of the $# Bourne and Korn shell variable by 1 for each time it is issued.
+ 
+The following arguments can be used only for the Bourne and Korn Shells: 
+•$#     number of arguments.
+•$?     error return code.
+•$a     all arguments on the command line individually quoted.
+ 
+The following arguments can only be used with the C shell: 
+•$0     name of the program.
+•$argv     number of arguments.
+•$argv[n]     argument n (n is between 1 and 9, $argv[0] is invalid).
+•$argv[1-n]     arguments 1 to n (9 is maximum value for n).
+•argv[$#argv]     the last argument.
+ 
+Flow Control
+ 
+The Shells contain the following types of control structures to provide conditional and loop processing:
+ •if (expression) command [C Shell]
+•if-then structures
+•if-then-else structures
+•if-then-elseif-else structures
+•switch and case structures
+•for (loop) structures
+•while structures
+•until structures [Bourne, Korn, & BASH shells]
+•goto statements [C Shell]
+•continue statements
+•on interrupt (onintr) statements [C Shell]
+ 
+The example program "argtest" illustrates use of three of these structures. Since the first line of this shell begins with "#!/bin/sh", this shell will be executed using the Bourne Shell. Following the first line the script assigns initial values to the variables n and total. A blank line is then printed by the echo command.
+ 
+The first control structure is an "if-then" which is used to print a message if no arguments were included when the command was entered. The "if-then" conditional begins with a test of the expression "$# -lt " and ends with the "fi" ("if" spelled backwards) statement. If the number of arguments is less than 1, the "then" statements are executed. In this example, a message is displayed indicating that there were no command line arguments, a blank line is printed, and the script is terminated by the "exit" statement.
+ 
+When there are one or more arguments, the above "if" condition is not satisfied and the program continues by printing (echo) the list of arguments passed to the script. The "if" conditional statement is followed by a "while-do" structure (terminated by a "done" statement) which indicates that all of the statements are to be repeated so long as the current value of $n is less than or equal to the number of command line arguments. Note that the value of "$n" is incremented by 1 just before the "done" statement.
+ 
+Following the "do" statement is a "case" control structure which ends with the statement "esac" ("case" spelled backwards). This "case" structure examines the value of "$n". If it is "1", control is forwarded to the statement beginning with "1)" and it prints a message that the value of the first argument is "$1". Similar statements are included for "$n" in the range 2 through 9. If "$n" is greater than 9, then control is passed to the statements following "*)". Here the shift command is issued and a message is printed indicating that the value of the nth argument is equal to "$9" (recall our prior discussion of the shift command and its effect upon the values associated with the shell variables $1 through $9). After all of the arguments have been processed, the script continues after the done statement by printing a blank line (echo) and then exits. This program was written to illustrate use of the "case" control structure as well as the "while-do" and "if-then" structures. If we had not been interested in illustrating this control structure, this script could have been simplified by substituting the following statements for all of the statements between and including the "case" and "esac" statements: 
+  echo "Argument $n is:  $1"
+  shift
+  n=`expr $n + 1` 
+
+Not logged in. [Log in]
+ 
+
+ 
