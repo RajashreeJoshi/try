@@ -1,0 +1,16 @@
+<title>Demo On AngularJS</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script>
+	var app = angular.module("myApp", []);	
+	app.controller("myCtrl", function($scope){
+		$scope.name = "A BNY Mellon";
+		
+	});
+</script>
+<html ng-app="myApp">
+<div ng-controller="myCtrl">
+	<p>Name: <input type="text" ng-model="name"></p>
+	<span ng-bind="name"></span>
+</div>
+</html>
