@@ -1,0 +1,28 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="/css/main.css"></script>
+<script>
+	 var app = angular.module("myApp", []);
+	 
+	 app.controller('myCtrl', function($scope){
+		$scope.name = "iNautix"; 
+		
+		$scope.myFun = function () {
+			var popup = document.getElementById("myPopup");
+		    popup.classList.toggle("show");
+		}
+	 });
+</script>
+<title>AngularJs Demo</title>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+	<div>
+	  <p>Name: <input type="text" ng-model="name"></p>
+	  {{ name }}
+	</div>
+	
+	<div class= "popup" onmousehover="myFun()">On Hover Demo
+		<span class="popuptext" id="myPopup">A Simple Popup!</span>
+	</div>
+</body>
+</html>

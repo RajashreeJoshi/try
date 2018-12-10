@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="Ctrls/greetCtrl.js"></script>
+<html>
+<body ng-app="app">
+<div ng-controller="myCtrl">
+	<input type="text" name="time" ng-model="time"/>
+	<br><br>
+	<input type="submit" name="submit" value="Get Greeting" ng-click="printData()" />
+	<br><hr><br/>
+	<h2>Good {{greeting}}</h2>
+	<br/>
+	<h2>Hi: {{hi}}</h2>
+	<h2>Hello: {{hello}}</h2>
+</div>
+</body>
+</html>

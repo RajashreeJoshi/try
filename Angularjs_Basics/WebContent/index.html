@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script src="controllers/mainCtrl.js"></script>
+
+
+<html ng-app="mainApp">
+<head>
+	<title>Angular JS Demo</title>
+</head>
+<body ng-controller="mainCtrl">
+
+	<input type="text" ng-model="name"/>
+	
+	<!-- <h1>Hello: {{name}} </h1> -->
+	
+	<div ng-if="showName()">
+	<h3><span ng-bind="name"></span></h3>
+	</div>
+	
+	<button ng-click="printMessage()">Print Hi</button>
+	
+	<br/><h3>Printing Array:</h3>
+	<div ng-repeat="a in array">
+		<li>{{a}}</li>
+	</div>
+	
+</body>
+</html>
