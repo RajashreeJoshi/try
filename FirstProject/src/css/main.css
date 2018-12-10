@@ -1,0 +1,43 @@
+p, h1, h2, h3, h4, footer {
+  color: white;
+}
+
+header{
+  text-align: center;
+}
+
+footer{
+  text-align: center;
+  background-color: #b3d4fc;
+  color: #2c418e;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  padding: 1.5%;
+  opacity: 0.6%;
+}
+
+body{
+  /*background: #55bfff url('../img/veggy1.jpg') no-repeat center ;*/
+  background: #2c418e;
+}
+
+.container{
+  background: #07073a;
+}
+
+.navigators{
+  background-color: #b3d4fc;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  padding: 1.5%;
+  opacity: 0.6%;
+}
+
+a{
+  padding: 2.5%;
+}
+
+.circle{
+  border-radius: 100%;
+  border-bottom-width: 10px;
+}
